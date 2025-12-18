@@ -1,0 +1,215 @@
+:root{
+  --primary: #b6895b;
+  --bg: #010101;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: #fff;
+  /*min-height: 2000px;*/
+}
+
+/* Navbar */
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: rgba(1,1,1,0.8);
+  border-bottom: 1px solid #513c28;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo{
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  font-style: italic;
+}
+
+.navbar .navbar-logo span{
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a{
+  color: #fff;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+  transition: 0.3s;
+}
+
+.navbar .navbar-nav a:hover{
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after{
+  content: '';
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after{
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-ekstra a{
+  color: #fff;
+  margin-left: 1.5rem;
+  font-size: 1.6rem;
+  transition: 0.3s;
+}
+
+.navbar .navbar-ekstra a:hover{
+  color: var(--primary);
+}
+
+/* Default desktop: hamburger hidden */
+#hamburger-menu{
+  display: none;
+  cursor: pointer;
+}
+
+/* Hero section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-image: url('../img/header.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-right: 50px;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+    z-index: 1;
+}
+
+.hero .content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: right;
+}
+.hero.content{
+    padding: 1.4rem 7%;
+    max-width: 60rem;
+}
+
+.hero .content h1{
+   font-size: 4em;
+   color: #fff;
+   text-shadow: 1px 1px 3px rgba(1,1,3,0.5);
+}
+.hero .content h2{
+   font-size: 4em;
+   color: #fff;
+   text-shadow: 1px 1px 3px rgba(1,1,3,0.5);
+}
+
+
+/* Sidebar menu (mobile) */
+.navbar .navbar-nav{
+  position: static;            /* desktop: normal di atas */
+  display: flex;
+  gap: 1rem;
+  background: transparent;
+  width: auto;
+  height: auto;
+  padding: 0;
+  right: 0;
+  top: 0;
+  transition: none;
+}
+
+/* MOBILE MODE: ubah jadi sidebar */
+@media (max-width: 758px){
+  .navbar .navbar-nav{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+    padding-top: 2rem;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav a{
+    /* PERBAIKAN: Mengubah warna teks menu dari #f5f0f0 (abu-abu sangat muda)
+       menjadi hitam (#000) agar kontras di latar belakang putih. */
+    color: #000;
+    margin: 1.5rem;
+    display: block;
+  }
+
+  .navbar .navbar-nav.active{
+    right: 0;
+  }
+}
+
+
+.navbar .navbar-nav a::after{
+    transform-origin:0 0 ;
+}
+
+.navbar .navbar-nav a:hover:after{
+    transform: scaleX(0.2);
+}
+
+/* Laptop */
+@media (max-width: 1300px){
+  html{
+    font-size: 75%;
+  }
+}
+
+/* Tablet & Mobile */
+@media (max-width: 758px){
+  html{
+    font-size: 62.5%;
+  }
+
+  #hamburger-menu{
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav{
+    right: -100%;
+  }
+}
+
+/* Mobile small */
+@media (max-width: 450px){
+  html{
+    font-size: 55%;
+  }
+}
